@@ -23,6 +23,24 @@ uint32_t aes128cbc_datpad(uint8_t* out, uint8_t* dat, uint32_t dat_len){
 	return new_len;
 }
 
+uint32_t aes128cbc_datpad_val(uint8_t *out, uint8_t *dat, uint32_t dat_len, uint8_t pad){
+    uint32_t new_len = aes128cbc_calbufsize(dat_len);
+    uint32_t idx = 0;
+    //memset(out, 0, new_len);
+    //memcpy(out, dat, dat_len);
+    while (idx < dat_len)
+    {
+        out[idx] = dat[idx];
+        idx++;
+    }
+    while (idx < new_len)
+    {
+        out[idx] = pad;
+        idx++;
+    }
+    return new_len;
+}
+
 void aes128cbc_encrypt(uint8_t* out, uint8_t* in, uint32_t len, const uint8_t* key, const uint8_t* iv ){
 	AES128_CBC_encrypt_buffer(out, in, len, key, iv);
 }

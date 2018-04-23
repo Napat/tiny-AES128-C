@@ -13,7 +13,8 @@ http://www.obviex.com/articles/CiphertextSize.pdf
 */
 uint32_t aes128cbc_calbufsize(uint32_t dat_len);
 uint32_t aes128cbc_datpad(uint8_t* out, uint8_t* dat, uint32_t dat_len);
-void aes128cbc_encrypt(uint8_t* out, uint8_t* in, uint32_t len, const uint8_t* key, const uint8_t* iv);
+uint32_t aes128cbc_datpad_val(uint8_t *out, uint8_t *dat, uint32_t dat_len, uint8_t pad);
+void aes128cbc_encrypt(uint8_t *out, uint8_t *in, uint32_t len, const uint8_t *key, const uint8_t *iv);
 void aes128cbc_decrypt(uint8_t* out, uint8_t* in, uint32_t len, const uint8_t* key, const uint8_t* iv);
 void aes128cbc_decrypt_block(uint8_t* out, uint8_t* in, uint32_t len, const uint8_t* key, const uint8_t* iv);
 

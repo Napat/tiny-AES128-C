@@ -58,7 +58,7 @@ int main(void)
 	memset(encrypt_buf, 0, sizeof(encrypt_buf));
 	memset(decrypt_buf, 0, sizeof(decrypt_buf));
 
-	datpad_len = aes128cbc_datpad(dat_buf, str_buf, strlen((char*)str_buf)+1);
+	datpad_len = aes128cbc_datpad_val(dat_buf, str_buf, strlen((char*)str_buf)+1, 0xFF);
 
 	printf("dat_len: %u\n", dat_len);
 	printf("datpad_len: %u\n", datpad_len);
